@@ -55,7 +55,7 @@ namespace desafioJunior01.Services.Implementations
         public bool esClaveAdmisible(string clave)
         {
             bool esClave = false;
-            if(clave.Length==1 && Char.IsLetter(clave[0]) )
+            if(clave.Length==1 && (Char.IsLetter(clave[0]) || clave[0].CompareTo(' ')==0 ) )
             {
                 esClave = true;
             }

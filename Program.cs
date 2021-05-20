@@ -19,7 +19,10 @@ namespace desafioJunior01
             Console.WriteLine($"Verif C:{map['C']}");
 
             IReaderService reader = new ConsoleReaderService();
-            Console.WriteLine(reader.readInputLine());
+            string input = reader.readInputLine();
+
+            InputMapperService maperService = new InputMapperService(map);
+            Console.WriteLine( maperService.mapThis(input) );
         }
     }
 }
