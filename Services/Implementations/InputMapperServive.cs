@@ -21,8 +21,8 @@ namespace desafioJunior01.Services.Implementations
                 }
                 catch (KeyNotFoundException e)
                 {
-                    String msg = "Clave no encontrada - Se introdujo un caracter que no se encuentra en el alfabeto - Porfavor dirijase al archivo mapaAlfa.txt";
-                    MyException me = new MyException(msg, e);
+                    String msg = "Clave no encontrada - Se introdujo un caracter que no se encuentra en el alfabeto - Porfavor dirijase al archivo \"./mapaAlfa.txt\" si desea agregarlo";
+                    MyException me = new MyException(msg, e, false);
                     throw me;
                 }
 

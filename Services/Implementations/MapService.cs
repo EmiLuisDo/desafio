@@ -13,6 +13,7 @@ namespace desafioJunior01.Services.Implementations
         public Dictionary<char, int> getMap(string path)
         {
             List<String> mapa = _fileService.leerMapa(path);
+
             Dictionary<char, int> map= new Dictionary<char, int>();
 
             string [] clave_valor;
@@ -36,8 +37,8 @@ namespace desafioJunior01.Services.Implementations
                     }
                     catch (ArgumentException ae)
                     {
-                        String msg = $"Clave Duplicada '{claveaux}' - Dirijase  al archivo mapaAlfa para correjirlo";
-                        MyException myException= new MyException(msg, ae);
+                        String msg = $"Clave Duplicada '{claveaux}' - Dirijase  al archivo \"./mapaAlfa.txt\" para correjirlo";
+                        MyException myException= new MyException(msg, ae, true);
                         throw myException;
                     }
                 }
@@ -50,8 +51,8 @@ namespace desafioJunior01.Services.Implementations
 
             if(!int.TryParse(valor, out valorI))
             {
-                String msg = $"El valor '{valor}' no es admisible - Dirijase  al archivo mapaAlfa para correjirlo";
-                MyException myException = new MyException(msg);
+                String msg = $"El valor '{valor}' no es admisible - Dirijase  al archivo \"./mapaAlfa.txt\" para correjirlo";
+                MyException myException = new MyException(msg, true);
                 throw myException;
             }
 
@@ -67,7 +68,7 @@ namespace desafioJunior01.Services.Implementations
             else
             {
                 String msg = $"La clave '{clave}' no es admisible - Dirijase  al archivo mapaAlfa para correjirlo";
-                MyException me = new MyException(msg);
+                MyException me = new MyException(msg, true);
                 throw me;
             }
             return esClave;

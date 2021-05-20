@@ -15,12 +15,20 @@ namespace desafioJunior01.Services.Implementations
                 await file.WriteLineAsync(mensaje);
             }
         }
-        public async Task registrarErrorAsync(string mensaje, Exception e)
+        public async Task registrarErrorInesperadoAsync(string mensaje, Exception e)
         {
             using (StreamWriter file = new StreamWriter(archivo, append : true))
             {
                 DateTime momento = DateTime.Now;
                 await file.WriteLineAsync("__"+momento +" "+ mensaje +" \n"+ e+"\n");
+            }
+        }
+        public async Task registrarErrorAsync(string mensaje, MyException me)
+        {
+            using (StreamWriter file = new StreamWriter(archivo, append : true))
+            {
+                DateTime momento = DateTime.Now;
+                await file.WriteLineAsync("__"+momento +" "+ mensaje +" \n"+ me+"\n");
             }
         }
 
