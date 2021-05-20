@@ -18,7 +18,9 @@ namespace desafioJunior01
             Dictionary<char, int> map=null;
             InputMapperService maperService = null;
 
+            //creando dependencias necesarias
             IWriterService writerService = new ConsoleWriterService();
+            writerService.inicializacion();
             IReaderService readerService = new ConsoleReaderService();
             ILogger logger = new Logger();
             IMapService mapGen = new MapService(new StringService(), new FileService());
@@ -43,7 +45,8 @@ namespace desafioJunior01
                 logger.registrarErrorInesperadoAsync("Ocurrio un error inesperado", ex);
                     Environment.Exit(-1);
             }
-
+            //fin inicializacion de dependencias
+            writerService.finInicializacion();
             APP app = new APP(logger, maperService, readerService, writerService);
             
             app.ejecutar();
@@ -53,12 +56,12 @@ namespace desafioJunior01
         {
             String input;
             String output;
-        
-            while(true)
+            _writerService.bienvenida();
+            input = _readerService.readInputLine();
+            while(input!="")
                 {
                     try
                     {
-                        input = _readerService.readInputLine();
                         _logger.registrarSolicitudMapeo(input);
                         output = _inputMaperService.mapThis(input);
                         _logger.registrarResultadoMapeo(output);
@@ -80,6 +83,7 @@ namespace desafioJunior01
                         break;
 
                     }
+                    input = _readerService.readInputLine();
                 }
 
 

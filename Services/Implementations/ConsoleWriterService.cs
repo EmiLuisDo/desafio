@@ -20,5 +20,23 @@ namespace desafioJunior01.Services.Implementations
             escribir(mensaje);
             escribir(exception.Message);
         }
+
+        public void bienvenida()
+        {
+            escribir(">BIENVENIDO A LA APP");
+            escribir(">INGRESE CADENAS DE CARACTERES (ENTER PARA TERMINAR)");
+        }
+        public void inicializacion()
+        {
+            escribir("----------------------------------------------------------------------------------------------------");
+            escribir("PREPARANDO TODO...");
+        }
+
+        public void finInicializacion()
+        {
+            escribir("\t       ...TERMINADO");
+            escribir(">(EL ALFABETO ADMISIBLE Y SUS SECUENCIAS NUMEROCAS CORRESPONDIENTES ESTAN DETERMINADOS POR EL ARCHIVO mapaAlfa.txt QUE SE ENCUENTRA EN EL DIRECTORIO DEL PROYECTO)");
+            escribir("----------------------------------------------------------------------------------------------------");
+        }
     }
 }
