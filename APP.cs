@@ -29,7 +29,7 @@ namespace desafioJunior01
                 map = mapGen.getMap(pathMap);
                 maperService = new InputMapperService(map);
             }
-            catch(MyException me)
+            catch(ExpectedException me)
             {
 
                 writerService.notificarError("Ocurrio un error - Dirijase a './log' para obtener mas detalles", me);
@@ -67,7 +67,7 @@ namespace desafioJunior01
                         _logger.registrarResultadoMapeo(output);
                         _writerService.escribir(output);
                     }
-                    catch(MyException me)
+                    catch(ExpectedException me)
                     {
                         _writerService.notificarError("Ocurrio un error - Dirijase a './log' para obtener mas detalles", me);
                         _logger.registrarErrorAsync("Ocurrio un error inesperado", me);

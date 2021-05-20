@@ -1,19 +1,19 @@
 using System;
 
-public class MyException : Exception
+public class ExpectedException : Exception
 {
     private readonly bool critical;
-    public MyException()
+    public ExpectedException()
     {
     }
 
-    public MyException(string message, bool critical)
+    public ExpectedException(string message, bool critical)
         : base(message)
     {
         this.critical = critical;
     }
 
-    public MyException(string message, Exception inner, bool critical)
+    public ExpectedException(string message, Exception inner, bool critical)
         : base(message, inner)
     {
         this.critical = critical;

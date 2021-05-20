@@ -23,7 +23,7 @@ namespace desafioJunior01.Services.Implementations
                 await file.WriteLineAsync("__"+momento +" "+ mensaje +" \n"+ e+"\n");
             }
         }
-        public async Task registrarErrorAsync(string mensaje, MyException me)
+        public async Task registrarErrorAsync(string mensaje, ExpectedException me)
         {
             using (StreamWriter file = new StreamWriter(archivo, append : true))
             {

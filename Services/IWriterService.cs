@@ -8,7 +8,7 @@ namespace desafioJunior01.Services
 
         void notificarErrorInesperado(string mensaje, Exception exception);
 
-        void notificarError(string mensaje, MyException exception);
+        void notificarError(string mensaje, ExpectedException exception);
 
         void bienvenida();
 

@@ -9,7 +9,7 @@ namespace desafioJunior01.Services.Implementations
             Console.WriteLine(mensaje);
         }
 
-        public void notificarError(string mensaje, MyException exception)
+        public void notificarError(string mensaje, ExpectedException exception)
         {
             escribir(mensaje);
             escribir(exception.Message);

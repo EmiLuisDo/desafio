@@ -24,7 +24,7 @@ namespace desafioJunior01.Services.Implementations
             else
             {
                 String msg = "No se encontro el archivo \"./mapaAlfa.txt\" - Por favor cree uno";
-                MyException me = new MyException(msg, true);
+                ExpectedException me = new ExpectedException(msg, true);
                 throw me;
             }
 

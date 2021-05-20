@@ -38,7 +38,7 @@ namespace desafioJunior01.Services.Implementations
                     catch (ArgumentException ae)
                     {
                         String msg = $"Clave Duplicada '{claveaux}' - Dirijase  al archivo \"./mapaAlfa.txt\" para correjirlo";
-                        MyException myException= new MyException(msg, ae, true);
+                        ExpectedException myException= new ExpectedException(msg, ae, true);
                         throw myException;
                     }
                 }
@@ -52,7 +52,7 @@ namespace desafioJunior01.Services.Implementations
             if(!int.TryParse(valor, out valorI))
             {
                 String msg = $"El valor '{valor}' no es admisible - Dirijase  al archivo \"./mapaAlfa.txt\" para correjirlo";
-                MyException myException = new MyException(msg, true);
+                ExpectedException myException = new ExpectedException(msg, true);
                 throw myException;
             }
 
@@ -68,7 +68,7 @@ namespace desafioJunior01.Services.Implementations
             else
             {
                 String msg = $"La clave '{clave}' no es admisible - Dirijase  al archivo mapaAlfa para correjirlo";
-                MyException me = new MyException(msg, true);
+                ExpectedException me = new ExpectedException(msg, true);
                 throw me;
             }
             return esClave;

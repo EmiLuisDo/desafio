@@ -7,7 +7,7 @@ namespace desafioJunior01.Services
     {
         Task registrarAsync(string mensaje);
         Task registrarErrorInesperadoAsync(string mensaje, Exception e);
-        Task registrarErrorAsync(string mensaje, MyException me);
+        Task registrarErrorAsync(string mensaje, ExpectedException me);
         Task registrarSolicitudMapeo(string input);
         Task registrarResultadoMapeo(string output);
     }
