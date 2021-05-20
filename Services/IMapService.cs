@@ -6,7 +6,7 @@ namespace desafioJunior01.Services
 {
     public interface IMapService
     {
-        Dictionary<char, int> getMap(List<string> mapa);
+        Dictionary<char, int> getMap(string path);
         bool esClaveAdmisible(string clave);
 
        int obtenerValorAdmisible(string valor);

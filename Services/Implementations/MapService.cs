@@ -8,9 +8,11 @@ namespace desafioJunior01.Services.Implementations
     public class MapService : IMapService
     {
         private readonly IStringService _stringFilterService ;
+        private readonly IFileService _fileService;
 
-        public Dictionary<char, int> getMap(List<string> mapa)
+        public Dictionary<char, int> getMap(string path)
         {
+            List<String> mapa = _fileService.leerMapa(path);
             Dictionary<char, int> map= new Dictionary<char, int>();
 
             string [] clave_valor;
@@ -24,8 +26,6 @@ namespace desafioJunior01.Services.Implementations
                 clave_valor = _stringFilterService.obtenerParClaveValor(strMap);
                 claveString = clave_valor[0];
                 valorString = clave_valor[1];
-                //Console.WriteLine($"Clave {claveString}");
-                //Console.WriteLine($"Valor {valorString}");
 
                 valoraux = obtenerValorAdmisible(valorString);
                 if(esClaveAdmisible(claveString) && valoraux!=-1 )
@@ -66,9 +66,10 @@ namespace desafioJunior01.Services.Implementations
             return esClave;
         }
 
-        public MapService(IStringService stringFilterService)
+        public MapService(IStringService stringFilterService, IFileService fileService)
         {
             this._stringFilterService = stringFilterService;
+            this._fileService = fileService;
         }
     }
 

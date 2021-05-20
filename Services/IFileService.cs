@@ -4,6 +4,6 @@ namespace desafioJunior01.Services
 {
     public interface IFileService
     {
-        List<string> leerMapa();
+        List<string> leerMapa(string input);
     }
 }

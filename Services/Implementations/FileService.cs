@@ -7,8 +7,7 @@ namespace desafioJunior01.Services.Implementations
 {
     public class FileService : IFileService
     {
-        private readonly string path = @"mapaAlfa.txt";
-        public List<string> leerMapa()
+        public List<string> leerMapa(string path)
         {
             StreamReader file = new System.IO.StreamReader(path);  
             List<string> paresCV = new List<string>();
