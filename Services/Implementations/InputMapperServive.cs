@@ -21,8 +21,9 @@ namespace desafioJunior01.Services.Implementations
                 }
                 catch (KeyNotFoundException e)
                 {
-                    Console.WriteLine("Clave no encontrada - Se introdujo un caracter que no se encuentra en el alfabeto - Porfavor dirijase al archivo mapaAlfa.txt");
-                    throw e;
+                    String msg = "Clave no encontrada - Se introdujo un caracter que no se encuentra en el alfabeto - Porfavor dirijase al archivo mapaAlfa.txt";
+                    MyException me = new MyException(msg, e);
+                    throw me;
                 }
 
                 if(ant[0].CompareTo(aux[0]) == 0)

@@ -15,7 +15,6 @@ namespace desafioJunior01.Services.Implementations
             {
                 using(StreamReader mSR = File.OpenText(path))
                 {
-                    // string s = mSR.ReadLine();
                     string linea = "";
                     while ( (linea = mSR.ReadLine())!= null)
                     {
@@ -25,7 +24,9 @@ namespace desafioJunior01.Services.Implementations
             }  
             else
             {
-                throw new Exception("No se encontro el archivo \"mapaAlfa.txt\" en el directorio del proyecto");
+                String msg = "No se encontro el archivo \"./mapaAlfa.txt\" - Por favor cree uno";
+                MyException  me = new MyException(msg);
+                throw me;
             }
 
 

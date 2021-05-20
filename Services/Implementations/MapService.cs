@@ -34,8 +34,11 @@ namespace desafioJunior01.Services.Implementations
                     try{
                         map.Add(claveaux, valoraux);
                     }
-                    catch (ArgumentException){
-                        Console.WriteLine($"Elemento Clave Duplicado '{claveaux}'"); 
+                    catch (ArgumentException ae)
+                    {
+                        String msg = $"Clave Duplicada '{claveaux}' - Dirijase  al archivo mapaAlfa para correjirlo";
+                        MyException myException= new MyException(msg, ae);
+                        throw myException;
                     }
                 }
             }
@@ -47,7 +50,9 @@ namespace desafioJunior01.Services.Implementations
 
             if(!int.TryParse(valor, out valorI))
             {
-                throw new Exception($"El valor {valor} no es admisible");
+                String msg = $"El valor '{valor}' no es admisible - Dirijase  al archivo mapaAlfa para correjirlo";
+                MyException myException = new MyException(msg);
+                throw myException;
             }
 
             return valorI;
@@ -61,7 +66,9 @@ namespace desafioJunior01.Services.Implementations
             }
             else
             {
-                throw new Exception($"La clave '{clave}' no es admisible");
+                String msg = $"La clave '{clave}' no es admisible - Dirijase  al archivo mapaAlfa para correjirlo";
+                MyException me = new MyException(msg);
+                throw me;
             }
             return esClave;
         }

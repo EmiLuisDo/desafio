@@ -15,7 +15,6 @@ namespace desafioJunior01.Services.Implementations
                 await file.WriteLineAsync(mensaje);
             }
         }
-
         public async Task registrarErrorAsync(string mensaje, Exception e)
         {
             using (StreamWriter file = new StreamWriter(archivo, append : true))

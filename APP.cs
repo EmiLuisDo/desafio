@@ -33,12 +33,33 @@ namespace desafioJunior01
         
             while(true)
                 {
-                    input = _readerService.readInputLine();
-                    _logger.registrarSolicitudMapeo(input);
-                    output = _inputMaperService.mapThis(input);
-                    _logger.registrarResultadoMapeo(output);
-                    Console.WriteLine(output);
+                    try
+                    {
+                        input = _readerService.readInputLine();
+                        _logger.registrarSolicitudMapeo(input);
+                        output = _inputMaperService.mapThis(input);
+                        _logger.registrarResultadoMapeo(output);
+                        Console.WriteLine(output);
+                    }
+                    catch(MyException me)
+                    {
+                        Console.WriteLine("Ocurrio un error - Dirijase a './log' para obtener mas detalles");
+                        Console.WriteLine(me.Message);
+
+                        _logger.registrarErrorAsync("Ocurrio un error", me);
+                        break;
+                    }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine("Ocurrio un error inesperado - Dirijase a './log' para obtener mas detalles");
+                        Console.WriteLine(e.Message);
+
+                        _logger.registrarErrorAsync("Ocurrio un error inesperado", e);
+                        break;
+
+                    }
                 }
+
 
         }
 
